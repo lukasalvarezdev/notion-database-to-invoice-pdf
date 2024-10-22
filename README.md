@@ -1,41 +1,52 @@
-# Remix blog stack by Lukas Alvarez!
+# Notion Database to Beautiful Invoice PDF
 
-See it live: https://lukasalvarez.com
+## Requirements
 
-Learn more about [Remix Stacks](https://remix.run/docs/en/main/guides/templates#stacks).
+- Node.js
+- Notion Account
 
-```shellscript
-npx create-remix@latest --template lukasalvarezdev/remix-blog-stack
-```
+## Setup
 
-## What's in the stack
-
-- [GitHub Actions](https://github.com/features/actions) for CI/CD
-- Markdown support with [MDX](https://mdxjs.com/)
-- MDX bundling with code-highlighting and frontmatter parsing with
-  [MDX Bundler](https://github.com/kentcdodds/mdx-bundler)
-- Styling with [Tailwind](https://tailwindcss.com/)
-- Unit testing with [Vitest](https://vitest.dev) and
-  [Testing Library](https://testing-library.com)
-- Code Formatting with [Prettier](https://prettier.io/)
-- Code Linting with [ESLint](https://eslint.org/)
-- Static Types with [TypeScript](https://typescriptlang.org)
-
-## Development
-
-Make sure the dependencies are installed
+First, clone the repository and navigate to the project directory.
 
 ```sh
-npm run install
+  git clone lukasalvarezdev/notion-database-to-invoice-pdf
+  cd notion-database-to-invoice-pdf
 ```
 
-Afterwards, start the Remix development server like so:
+Install the dependencies:
 
 ```sh
-npm run dev
+  npm install
 ```
 
-Open up [http://localhost:3000](http://localhost:3000) and you should be ready to go!
+Copy the `.env.example` file to `.env` and replace with real values.
 
-Go to localhost:3000/books and you should see a list of posts. You can add more posts by
-creating a new MDX file in the `app/content` directory.
+```sh
+  cp .env.example .env
+```
+
+Next, you need to get your Notion API key and database ID.
+
+1. Go to [Notion Integrations](https://www.notion.so/my-integrations).
+2. Click on `New Integration`.
+3. Name your integration and click `Submit`.
+4. Copy the `Internal Integration Secret` and paste it in the `.env` file as `NOTION_API_KEY`.
+5. Go to the Notion page you want to use as a database, to get the database ID, check the URL.
+   It should look like `https://www.notion.so/{workspace}/{database_id}?v={version}`. Copy the
+   `database_id` and paste it in the `.env` file as `NOTION_DATABASE_ID`.
+
+## Usage
+
+Run the development server:
+
+```sh
+  npm run dev
+```
+
+Open up [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Generate PDF
+
+Just click on the `Generate PDF` button or press `Ctrl + P` to print the page and save it as a
+PDF.
