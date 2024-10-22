@@ -1,3 +1,8 @@
+<!-- prettier-ignore-start -->
+[![MIT License][license-badge]][license]
+[![PRs Welcome][prs-badge]][prs]
+<!-- prettier-ignore-end -->
+
 # Notion Database to Beautiful Invoice PDF
 
 ## The Problem
@@ -68,3 +73,12 @@ Open up [http://localhost:3000](http://localhost:3000) in your browser.
 
 Just click on the `Generate PDF` button or press `Ctrl + P` to print the page and save it as a
 PDF.
+
+
+
+<!-- prettier-ignore-start -->
+[license-badge]: https://img.shields.io/npm/l/mdx-bundler.svg?style=flat-square
+[license]: https://github.com/lukasalvarezdev/notion-database-to-invoice-pdf/blob/main/LICENSE
+[prs-badge]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square
+[prs]: https://makeapullrequest.com
+<!-- prettier-ignore-end -->
