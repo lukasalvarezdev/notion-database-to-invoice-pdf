@@ -1,9 +1,27 @@
 # Notion Database to Beautiful Invoice PDF
 
+## The Problem
+
+When you are an independent contractor or freelancer, you need to keep track of the hours you
+work per day and the tasks you do. You can use a Notion database to keep track of this
+information, but you need to generate an invoice at the end of the month to send to your
+clients. You can use tools like canva or google docs to create a beautiful invoice, but you need
+to copy the information from the Notion database to the invoice manually.
+
+## The Solution
+
+This project is a simple web application that connects to a Notion database and displays the
+information in a beautiful invoice format. You can generate a PDF of the invoice and send it to
+your clients.
+
 ## Requirements
 
 - Node.js
 - Notion Account
+- A Notion database with the following columns:
+  - Date (Date)
+  - Task (Text)
+  - Hours (Number)
 
 ## Setup
 
