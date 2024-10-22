@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	html,
+	body {
+		font-family: 'DM Sans', sans-serif;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-bold;
+	}
+
+	h1 {
+		@apply text-4xl;
+	}
+
+	h2 {
+		@apply text-3xl;
+	}
+
+	h3 {
+		@apply text-2xl;
+	}
+
+	h4 {
+		@apply text-xl;
+	}
+
+	h5 {
+		@apply text-lg;
+	}
+
+	h6 {
+		@apply text-base;
+	}
+
+	@media print {
+		@page {
+			margin: 0;
+		}
+
+		body {
+			margin: 0;
+		}
+
+		/* Hide the header and footer that browsers add */
+		@page {
+			size: auto;
+			margin: 0mm;
+		}
+
+		thead {
+			display: table-row-group;
+		}
+
+		tr {
+			break-inside: avoid;
+		}
+	}
+}
