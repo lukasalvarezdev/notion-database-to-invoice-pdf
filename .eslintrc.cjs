@@ -26,6 +26,7 @@ module.exports = {
 
 	overrides: [
 		{
+			files: ['**/*.{js,jsx,ts,tsx}'],
 			rules: {
 				'no-inner-declarations': 'off',
 			},
