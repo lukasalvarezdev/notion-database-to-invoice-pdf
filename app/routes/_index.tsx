@@ -141,7 +141,7 @@ export default function Component() {
 					<tbody>
 						<tr className="h-12 border-b border-black">
 							<td className="pl-4">Frontend Developement</td>
-							<td>{hourlyRate}$</td>
+							<td>${hourlyRate}</td>
 							<td>{totalHours}</td>
 							<td>${total}</td>
 						</tr>
