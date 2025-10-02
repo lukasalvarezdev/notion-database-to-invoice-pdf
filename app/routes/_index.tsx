@@ -8,6 +8,7 @@ export async function loader() {
 	const response = await notion.databases.query({
 		database_id: process.env.NOTION_DATABASE_ID!,
 	});
+	const currentMonth = process.env.CURRENT_MONTH;
 	const entries = response.results.filter(page => 'properties' in page) as PageObjectResponse[];
 	type PropertyItem = PageObjectResponse['properties'][keyof PageObjectResponse['properties']];
 
@@ -33,8 +34,10 @@ export async function loader() {
 			const date = new Date(day.date);
 			date.setDate(date.getDate() + 1);
 
+			// Use CURRENT_MONTH environment variable (0-indexed, so subtract 1)
+			const targetMonth = currentMonth ? Number(currentMonth) - 1 : new Date().getMonth();
 			const now = new Date();
-			return date.getMonth() === now.getMonth() && date.getFullYear() === now.getFullYear();
+			return date.getMonth() === targetMonth && date.getFullYear() === now.getFullYear();
 		})
 		.sort((a, b) => {
 			if (!a.date || !b.date) {
@@ -57,10 +60,11 @@ export async function loader() {
 		invoiceNumber: process.env.INVOICE_NUMBER,
 	};
 
-	// next pay date is 15th of the next month
+	// next pay date is 15th of the next month after CURRENT_MONTH
 	const nextPayDate = new Date();
 	nextPayDate.setDate(15);
-	nextPayDate.setMonth(nextPayDate.getMonth() + 1);
+	const targetMonth = currentMonth ? Number(currentMonth) - 1 : new Date().getMonth();
+	nextPayDate.setMonth(targetMonth + 1);
 
 	const currentDate = formatDate(new Date().toISOString());
 
